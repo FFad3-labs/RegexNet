@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ProjectName\ProjectName.csproj" />
+    <ProjectReference Include="..\..\src\RegexNet.Core\RegexNet.Core.csproj" />
   </ItemGroup>
 
 </Project>
