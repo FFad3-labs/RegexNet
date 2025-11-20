@@ -39,8 +39,11 @@ public class Lexer
         var token = c switch
         {
             //'\\' => ReadEscape(start),
+            '|' => Token.Alter(start),
             '*' => Token.Star(start),
-            _ => Token.Literal(start)
+            '+' => Token.Plus(start),
+            '?' => Token.QuestionMark(start),
+            _ => Token.Literal(start, 1, c)
         };
 
         _tokens.Add(token);
@@ -52,9 +55,9 @@ public class Lexer
 
         var token = c switch
         {
-            '\\' => Token.Literal(start, 2),
-            '(' => Token.Literal(start, 2),
-            ')' => Token.Literal(start, 2),
+            '\\' => Token.Literal(start, 2, '\\'),
+            '(' => Token.Literal(start, 2, '('),
+            ')' => Token.Literal(start, 2, ')'),
             _ => throw new Exception($"Unknown escape '\\{c}' at position {start}")
         };
 

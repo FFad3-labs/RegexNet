@@ -4,5 +4,8 @@ public enum TokenType
 {
     Literal,
     EndOfInput,
-    Star
+    Star,
+    Alter,
+    QuestionMark,
+    Plus
 }
